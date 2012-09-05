@@ -8,6 +8,8 @@ import javax.el.BeanELResolver;
 import javax.el.ELContext;
 import javax.el.ELException;
 import javax.el.PropertyNotFoundException;
+import org.primefaces.application.PrimeResourceHandler;
+import org.primefaces.extensions.application.PrimeFacesExtensionsResourceHandler;
 
 /**
  * <p>
@@ -50,7 +52,9 @@ public class ExtendedBeanELResolver extends BeanELResolver {
                      || (base == null)
                      || (base instanceof ResourceBundle)
                      || (base instanceof Map)
-                     || (base instanceof Collection);
+                     || (base instanceof Collection)
+                     || (base instanceof PrimeResourceHandler)
+                     || (base instanceof PrimeFacesExtensionsResourceHandler);
             if (isInValid) {
                 return null;
             }

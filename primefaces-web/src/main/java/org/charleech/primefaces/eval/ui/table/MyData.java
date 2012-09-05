@@ -1,20 +1,24 @@
-package org.charleech.primefaces.eval.jsf;
+package org.charleech.primefaces.eval.ui.table;
 
-import java.util.List;
-import java.util.Locale;
+import java.io.Serializable;
 
-import org.charleech.primefaces.eval.Markable;
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <p>
- * This is an interface which provides the feature for configuring the JSF as
- * an application scope.
+ * This is a concrete implementing class which provides the feature as a data
+ * bean.
  * </p>
  *
  * @author charlee.ch
  * @version 0.0.1
  * @since 0.0.1
- * @see Markable
+ * @see Serializable
  * @see <a rel="license"
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
  *      alt="Creative Commons License" style="border-width:0"
@@ -28,36 +32,45 @@ import org.charleech.primefaces.eval.Markable;
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
  *      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
  */
-public interface ApplicationConfigurable extends Markable {
-    /**
-     * Get page encoding.
-     *
-     * @return The page encoding
-     * @since 0.0.1
-     */
-    String getPageEncoding();
+@Data
+@EqualsAndHashCode(
+        callSuper       = false,
+        doNotUseGetters = true
+        )
+@ToString(
+        callSuper         = true,
+        includeFieldNames = true,
+        doNotUseGetters   = true
+        )
+@Dependent
+public class MyData implements Serializable {
 
     /**
-     * Get the HTML content type.
+     * This is a default serial version UID.
      *
-     * @return The HTML content type
      * @since 0.0.1
      */
-    String getHtmlContentType();
+    private static final long serialVersionUID = 1L;
 
     /**
-     * Get available {@link Locale} list.
+     * This is a variable which represents the id.
      *
-     * @return The available {@link Locale} list
      * @since 0.0.1
      */
-    List<Locale> getAvailableLocales();
+    private String id;
 
     /**
-     * Get default {@link Locale}.
+     * This is a variable which represents the name.
      *
-     * @return The default {@link Locale}
      * @since 0.0.1
      */
-    Locale getDefaultLocale();
+    private String name;
+
+    /**
+     * This is a variable which represents the {@link MyDetail}.
+     *
+     * @since 0.0.1
+     */
+    @Inject
+    private MyDetail detail;
 }

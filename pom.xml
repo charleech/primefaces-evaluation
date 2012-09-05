@@ -268,7 +268,7 @@
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-core</artifactId>
             <version>${my.weld.version}</version>
-            <scope>${my.project.dependency.provided.scope}</scope>
+            <scope>${my.project.dependency.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>

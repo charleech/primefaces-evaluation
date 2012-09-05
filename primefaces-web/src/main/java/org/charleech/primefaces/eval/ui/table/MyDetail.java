@@ -1,13 +1,16 @@
-package org.charleech.primefaces.eval;
+package org.charleech.primefaces.eval.ui.table;
 
 import java.io.Serializable;
 
-import org.slf4j.Marker;
+import javax.enterprise.context.Dependent;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 /**
  * <p>
- * This is an interface which provides the feature for managing the SLF4J
- * {@link Marker}.
+ * This is a concrete implementing class which provides the feature as a data
+ * bean.
  * </p>
  *
  * @author charlee.ch
@@ -27,24 +30,37 @@ import org.slf4j.Marker;
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
  *      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
  */
-public interface MarkerWrappable extends Serializable {
-    /**
-     * Get the {@link Marker} instance by using the fully qualified package
-     * name.
-     *
-     * @param clazz
-     *            The getting package class.
-     * @return The {@link Marker} instance
-     */
-    Marker getMarker(final Class<?> clazz);
+@Data
+@EqualsAndHashCode(
+        callSuper       = false,
+        doNotUseGetters = true
+        )
+@ToString(
+        callSuper         = true,
+        includeFieldNames = true,
+        doNotUseGetters   = true
+        )
+@Dependent
+public class MyDetail implements Serializable {
 
     /**
-     * Get the {@link Marker} instance by using the specified name.
+     * This is a default serial version UID.
      *
-     * @param markerName
-     *            The creating marker name
-     * @return The {@link Marker} instance
-     *
+     * @since 0.0.1
      */
-    Marker getMarker(final String markerName);
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * This is a variable which represents the mobile no.
+     *
+     * @since 0.0.1
+     */
+    private String mobileNo;
+
+    /**
+     * This is a variable which represents the home no.
+     *
+     * @since 0.0.1
+     */
+    private String homeNo;
 }

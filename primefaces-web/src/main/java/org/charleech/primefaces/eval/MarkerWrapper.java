@@ -21,6 +21,13 @@ public class MarkerWrapper implements MarkerWrappable {
 
 
     /**
+     * This is a default serial version UID.
+     *
+     * @since 0.0.1
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
      * This is a constant which represents the the Weld-SE subclass postfix.
      *
      * @since 0.0.1
