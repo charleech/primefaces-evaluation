@@ -1,6 +1,10 @@
 package org.charleech.primefaces.eval;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.slf4j.Marker;
 
@@ -27,6 +31,7 @@ import org.slf4j.Marker;
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
  *      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
  */
+@Slf4j
 public abstract class AbstractMarker implements Markable {
 
     /**
@@ -44,8 +49,50 @@ public abstract class AbstractMarker implements Markable {
     @Inject
     private MarkerWrappable markerWrapper;
 
+    @PostConstruct
+    @Override
+    public void postConstruct() {
+        this.printPostConstruct();
+    }
+
+    @PreDestroy
+    @Override
+    public void preDestroy() {
+        this.printPreDestroy();
+    }
+
+
     @Override
     public Marker getMarker() {
         return this.markerWrapper.getMarker(this.getClass());
+    }
+
+    /**
+     * Print self information when the post construct is invoked.
+     *
+     * @since 0.0.1
+     */
+    protected void printPostConstruct() {
+        this.printInfo("This is a post construction as {}");
+    }
+
+    /**
+     * Print self information when the pre destroy is invoked.
+     *
+     * @since 0.0.1
+     */
+    protected void printPreDestroy() {
+        this.printInfo("This is a pre destroy as {}");
+    }
+
+    /**
+     * Print information.
+     *
+     * @param template
+     *            The printing message template.
+     * @since 0.0.1
+     */
+    private void printInfo(final String template) {
+        AbstractMarker.log.trace(this.getMarker(), template, this);
     }
 }

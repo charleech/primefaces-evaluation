@@ -33,4 +33,18 @@ public interface Markable extends Serializable {
      * @return The {@link Marker} for this class.
      */
     Marker getMarker();
+
+    /**
+     * This is a CDI post construction.
+     *
+     * @since 0.0.1
+     */
+    void postConstruct();
+
+    /**
+     * This is a CDI pre destruction.
+     *
+     * @since 0.0.1
+     */
+    void preDestroy();
 }
