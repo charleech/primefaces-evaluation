@@ -43,9 +43,9 @@
         <my.project.dependency.runtime.scope>
             runtime
         </my.project.dependency.runtime.scope>
-        <my.project.dependenct.web.scope>
+        <my.project.dependency.web.scope>
             compile
-        </my.project.dependenct.web.scope>
+        </my.project.dependency.web.scope>
         <!-- Plugin -->
         <my.maven.compiler.version>2.5.1</my.maven.compiler.version>
         <my.maven.resource.version>2.6</my.maven.resource.version>
@@ -72,6 +72,7 @@
             0.5.1
         </my.primefaces.extensions.version>
         <my.primefaces.theme.version>1.0.8</my.primefaces.theme.version>
+        <my.commons.beanutils.version>1.8.3</my.commons.beanutils.version>
         <my.junit.version>4.10</my.junit.version>
     </properties>
 
@@ -263,6 +264,12 @@
             <version>${slf4j.backend.version}</version>
             <scope>${my.project.dependency.scope}</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${my.commons.beanutils.version}</version>
+            <scope>${my.project.dependency.scope}</scope>
+        </dependency>
         <!-- JBoss -->
         <dependency>
             <groupId>org.jboss.weld</groupId>
@@ -304,19 +311,19 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>${my.primefaces.version}</version>
-			<scope>${my.project.dependenct.web.scope}</scope>
+			<scope>${my.project.dependency.web.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>primefaces-extensions</artifactId>
 			<version>${my.primefaces.extensions.version}</version>
-			<scope>${my.project.dependenct.web.scope}</scope>
+			<scope>${my.project.dependency.web.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>all-themes</artifactId>
 			<version>${my.primefaces.theme.version}</version>
-			<scope>${my.project.dependenct.web.scope}</scope>
+			<scope>${my.project.dependency.web.scope}</scope>
 		</dependency>
         <!-- Test -->
         <dependency>

@@ -15,13 +15,12 @@
 
         <h:form id="myForm">
 	        <f:event type="preRenderView"
-	         listener="#{dynamicTableBean.startConversation}" />
+	         listener="#{dynamicTableLazyBean.startConversation}" />
             <p:panel id="myPanel"
                      header="The data">
 			    <p:dataTable id="myTable"
 			                 var="element"
-			                 value="#{dynamicTableBean.datas}"
-			                 filteredValue="#{dynamicTableBean.filteredDatas}"
+			                 value="#{dynamicTableLazyBean.datasLazy}"
 			                 paginator="true"
 			                 rows="5"
 			                 paginatorTemplate="{RowsPerPageDropdown}
@@ -31,10 +30,18 @@
 			                                    {NextPageLink}
 			                                    {LastPageLink}"
 			                 rowsPerPageTemplate="5,10,15"
+                             selectionMode="single"
+                             selection="#{dynamicTableLazyBean.selectedElement}"
+                             lazy="true"
 			                 widgetVar="myTableVar"
 			                 emptyMessage="There is no any data">
 
-			        <p:columns value="#{dynamicTableBean.columns}"
+                    <p:ajax event="rowSelect"
+                            listener="#{dynamicTableLazyBean.onRowSelect}"
+                            update=":myDialog"
+                            oncomplete="myDialogWidgetVar.show()"/>
+
+			        <p:columns value="#{dynamicTableLazyBean.columns}"
 			                   var="column"
 			                   columnIndexVar="colIndex"
 			                   sortBy="#{element[column]}"
@@ -48,6 +55,24 @@
 			    </p:dataTable>
             </p:panel>
         </h:form>
+
+	    <p:dialog id="myDialog"
+	              widgetVar="myDialogWidgetVar"
+	              modal="true"
+	              appendToBody="true">
+
+            <p:panelGrid columns="2">
+                <h:outputText value="Id"/>
+                <h:outputText value="#{dynamicTableLazyBean.selectedElement.id}"/>
+                <h:outputText value="Name"/>
+                <h:outputText value="#{dynamicTableLazyBean.selectedElement.name}"/>
+                <h:outputText value="Home No."/>
+                <h:outputText value="#{dynamicTableLazyBean.selectedElement.detail.homeNo}"/>
+                <h:outputText value="Mobile No."/>
+                <h:outputText value="#{dynamicTableLazyBean.selectedElement.detail.mobileNo}"/>
+            </p:panelGrid>
+
+	    </p:dialog>
 
     </ui:define>
 
