@@ -1,7 +1,7 @@
 /**
  * <p>
- * This is a package which provides the JSF backing bean for the data table with
- * lazy loading.
+ * This is a package which provides the JSF backing bean for working witn the
+ * facelet template.
  * <p>
  *
  * @author charlee.ch
@@ -20,4 +20,4 @@
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
  *      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
  */
-package org.charleech.primefaces.eval.ui.table.lazy;
+package org.charleech.primefaces.eval.ui.pattern;
