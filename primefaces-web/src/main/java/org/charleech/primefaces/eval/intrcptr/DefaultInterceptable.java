@@ -1,11 +1,13 @@
-package org.charleech.primefaces.eval.ui.pattern;
+package org.charleech.primefaces.eval.intrcptr;
+
+import javax.interceptor.AroundInvoke;
+import javax.interceptor.InvocationContext;
 
 import org.charleech.primefaces.eval.Markable;
 
 /**
  * <p>
- * This is an interface which provides the feature for demonstrating the
- * JSF/Facelet template.
+ * This is an interface which provides the feature as a default CDI interceptor.
  * </p>
  *
  * @author charlee.ch
@@ -25,34 +27,17 @@ import org.charleech.primefaces.eval.Markable;
  *      href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
  *      Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
  */
-public interface Patternable extends Markable {
-
+public interface DefaultInterceptable extends Markable {
     /**
-     * Get the flag which identifies if the component should be rendered or not.
+     * Perform the intercepting.
      *
+     * @param context
+     *            The {@link InvocationContext}.
+     * @return The proceeded result.
+     * @throws Exception
+     *             If there is any error.
      * @since 0.0.1
      */
-    boolean isRendered();
-
-    /**
-     * Get the backing bean unique name as a prefix.
-     *
-     * @return The backing bean unique name as a prefix
-     * @since 0.0.1
-     */
-    String getPrefix();
-
-    /**
-     * This is a dummy action.
-     *
-     * @since 0.0.1
-     */
-    void myAction();
-
-    /**
-     * Start the JSF conversation.
-     *
-     * @since 0.0.1
-     */
-    void startConversation();
+    @AroundInvoke
+    Object perform(final InvocationContext context) throws Exception;
 }

@@ -15,6 +15,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 import org.charleech.primefaces.eval.AbstractMarker;
+import org.charleech.primefaces.eval.intrcptr.MyInterceptable;
 import org.primefaces.event.SelectEvent;
 
 /**
@@ -53,6 +54,7 @@ import org.primefaces.event.SelectEvent;
 @Named
 @ConversationScoped
 @Slf4j
+@MyInterceptable
 public class DynamicTableBean extends AbstractMarker {
 
     /**
