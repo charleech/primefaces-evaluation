@@ -1,6 +1,6 @@
 package org.charleech.primefaces.eval;
 
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
@@ -16,7 +16,7 @@ import org.slf4j.MarkerFactory;
  * @since 0.0.1
  * @see MarkerWrappable
  */
-@Singleton
+@ApplicationScoped
 public class MarkerWrapper implements MarkerWrappable {
 
 
