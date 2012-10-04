@@ -108,6 +108,17 @@ public class DynamicTableBean extends AbstractMarker {
      */
     List<String> columns;
 
+    /**
+     * This is the CDI initializer method.
+     *
+     * @since 0.0.1
+     * @see <a href="http://bit.ly/OEOHLf">Bug #20</a>
+     */
+    @Inject
+    public void initiate() {
+        this.postConstruct();
+    }
+
     @Override
     public void postConstruct() {
         this.datas = Collections.synchronizedList(new ArrayList<MyData>());

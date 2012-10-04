@@ -1,6 +1,5 @@
 package org.charleech.primefaces.eval.intrcptr;
 
-import javax.inject.Singleton;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -35,7 +34,6 @@ import org.charleech.primefaces.eval.AbstractMarker;
  */
 @Interceptor
 @MyInterceptable
-@Singleton
 @Slf4j
 public class DefaultInterceptor extends AbstractMarker
                              implements DefaultInterceptable {

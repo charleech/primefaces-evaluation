@@ -13,6 +13,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
+import org.charleech.primefaces.eval.intrcptr.MyInterceptable;
 import org.charleech.primefaces.eval.ui.table.DynamicTableBean;
 import org.charleech.primefaces.eval.ui.table.MyData;
 import org.charleech.primefaces.eval.ui.table.MyDetail;
@@ -55,6 +56,7 @@ import org.primefaces.model.LazyDataModel;
 @Named
 @ConversationScoped
 @Slf4j
+@MyInterceptable
 public class DynamicTableLazyBean extends DynamicTableBean {
 
     /**
@@ -78,6 +80,17 @@ public class DynamicTableLazyBean extends DynamicTableBean {
      * @since 0.0.1
      */
     private LazyDataModel<MyData> datasLazy;
+
+    /**
+     * This is the CDI initializer method.
+     *
+     * @since 0.0.1
+     * @see <a href="http://bit.ly/OEOHLf">Bug #20</a>
+     */
+    @Inject
+    public void initiate() {
+        this.postConstruct();
+    }
 
     @Override
     public void postConstruct() {
