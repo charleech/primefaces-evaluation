@@ -67,9 +67,9 @@
         <my.seam.solder.version>3.1.1.Final</my.seam.solder.version>
         <my.jaxb.osgi.version>2.2.5</my.jaxb.osgi.version>
         <my.glassfish.metro.version>2.2</my.glassfish.metro.version>
-        <my.primefaces.version>3.4</my.primefaces.version>
+        <my.primefaces.version>3.4.1</my.primefaces.version>
         <my.primefaces.extensions.version>
-            0.5.1
+            0.6.0
         </my.primefaces.extensions.version>
         <my.primefaces.theme.version>1.0.8</my.primefaces.theme.version>
         <my.commons.beanutils.version>1.8.3</my.commons.beanutils.version>
