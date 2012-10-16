@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui"
+    template="/template/MainTemplate.xhtml">
+
+    <ui:define name="mainTemplateBody">
+
+        <h:form id="myForm">
+
+            <p:panel id="myPanel"
+                     header="The data">
+                <p:panelGrid columns="3">
+                    <h:outputText value="Name"/>
+                    <h:outputText value=":"/>
+                    <p:inputText id="name" value="#{ejbUi.name}"/>
+
+                    <h:outputText value="Result"/>
+                    <h:outputText value=":"/>
+                    <h:outputText value="#{ejbUi.result}"/>
+                </p:panelGrid>
+                <p:commandButton id="sayButton"
+                                 value="Say"
+                                 actionListener="#{ejbUi.say}"
+                                 update="@form"/>
+            </p:panel>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
