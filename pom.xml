@@ -287,13 +287,13 @@
             <groupId>org.jboss.solder</groupId>
             <artifactId>solder-api</artifactId>
             <version>${my.seam.solder.version}</version>
-            <scope>${my.project.dependency.provided.scope}</scope>
+            <scope>${my.project.dependency.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.solder</groupId>
             <artifactId>solder-impl</artifactId>
             <version>${my.seam.solder.version}</version>
-            <scope>${my.project.dependency.provided.scope}</scope>
+            <scope>${my.project.dependency.runtime.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.seam.validation</groupId>
